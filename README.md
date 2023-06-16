@@ -387,6 +387,13 @@ let message = Message::new() // creating message
 let received_typed_body = DesiredShape::shape(&message).unwrap(); // Where m = Message
 ```
 
+## Unimplemented changes from spec v2.1
+
+DIDComm v2.1 [spec](https://identity.foundation/didcomm-messaging/spec/v2.1) has some changes which are unimplemented in the present `didcomm-rs` rust implementation.
+
+ - `body` element is optional. It can be left empty if absent, [link](https://identity.foundation/didcomm-messaging/spec/v2.1/#overview:~:text=body%20%2D-,OPTIONAL,-.%20The%20body%20attribute)
+ - `serviceEndpoint` has a minor variation in format, [link](https://identity.foundation/didcomm-messaging/spec/v2.1/#service-endpoint)
+
 ## Disclaimer
 
 This is a sample implementation of the DIDComm V2 spec. The DIDComm V2 spec is still actively being developed by the DIDComm WG in the DIF and therefore subject to change.

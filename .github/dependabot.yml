@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "cargo"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Raise pull requests for version updates
+    # to cargo against the `main` branch
+    target-branch: "main"
+    # Labels on pull requests for version updates only
+    labels:
+      - "cargo dependencies"
