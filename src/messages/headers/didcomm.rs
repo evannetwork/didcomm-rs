@@ -1,6 +1,6 @@
 use std::{collections::HashMap, time::SystemTime};
 
-use crate::{Error, PriorClaims, Thread};
+use crate::{Error, PriorClaims, Thread, Attachment};
 
 /// Collection of DIDComm message specific headers, will be flattened into DIDComm plain message
 /// according to [spec](https://datatracker.ietf.org/doc/html/draft-looker-jwm-01#section-4).
@@ -37,6 +37,8 @@ pub struct DidCommHeader {
     pub thread: Option<Thread>,
     #[serde(flatten, skip_serializing_if = "HashMap::is_empty")]
     pub(crate) other: HashMap<String, String>,
+    #[serde(flatten, skip_serializing_if = "Option::is_none")]
+    pub(crate) attchments: Option<Attachment>,
 }
 
 impl DidCommHeader {
@@ -54,6 +56,7 @@ impl DidCommHeader {
             from_prior: None,
             thread: None,
             other: HashMap::new(),
+            attchments: None,
         }
     }
 
